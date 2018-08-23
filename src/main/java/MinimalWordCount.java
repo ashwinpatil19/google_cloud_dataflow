@@ -90,7 +90,7 @@ public class MinimalWordCount {
 //        project_name:apache_beam_etl.beam_etl
 //        TableReference tableRef = new TableReference();
 //        tableRef.setDatasetId("apache_beam_etl");
-//        tableRef.setProjectId("magnetic-icon-167014");
+//        tableRef.setProjectId("project_name");
 //        tableRef.setTableId("beam_etl");
 //
 //        System.out.println("tableRef: "+ tableRef);
