@@ -41,12 +41,12 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 public class MinimalWordCount {
 
-    //magnetic-icon-167014:apache_beam_etl.beam_etl
+    //project_name:apache_beam_etl.beam_etl
     //Target Table setup - 1
-    private static final String BEAM_SAMPLES_TABLE = "magnetic-icon-167014:apache_beam_etl.beam_etl";
+    private static final String BEAM_SAMPLES_TABLE = "project_name:apache_beam_etl.beam_etl";
 
     //Target Table setup - 2 - Delete later
-    public static final String projectId = "magnetic-icon-167014"; ///UpperCasing - final needs to be in upper case
+    public static final String projectId = "project_name"; ///UpperCasing - final needs to be in upper case
     public static final String datasetName = "apache_beam_etl";  ///UpperCasing
     public static final String tableName = "beam_etl";  ///UpperCasing
 
@@ -76,7 +76,7 @@ public class MinimalWordCount {
 
         options.setRunner(DataflowRunner.class);
         System.out.println("Using Runner" + options.getRunner() + "\n");
-        options.setTempLocation("gs://magnetic-icon-167014/apache_beam_etl");
+        options.setTempLocation("gs://project_name/apache_beam_etl");
 
         String tempLocation = options.getTempLocation();
         System.out.println("tempLocation: " + tempLocation);
@@ -87,7 +87,7 @@ public class MinimalWordCount {
         // Create the Pipeline object with the options we defined above
         Pipeline p = Pipeline.create(options);
 
-//        magnetic-icon-167014:apache_beam_etl.beam_etl
+//        project_name:apache_beam_etl.beam_etl
 //        TableReference tableRef = new TableReference();
 //        tableRef.setDatasetId("apache_beam_etl");
 //        tableRef.setProjectId("magnetic-icon-167014");
@@ -117,7 +117,7 @@ public class MinimalWordCount {
 //                .apply(TextIO.write().to("new_wordcounts"));
                 .apply("TRANSFORM", ParDo.of(new TransformParDo()))
                 .apply("WRITE", BigQueryIO.writeTableRows()
-                        .to(String.format("magnetic-icon-167014:apache_beam_etl.beam_etl",
+                        .to(String.format("project_name:apache_beam_etl.beam_etl",
                                 options.getProject()))
                         .withCreateDisposition(CREATE_IF_NEEDED)
                         .withWriteDisposition(WRITE_APPEND)
